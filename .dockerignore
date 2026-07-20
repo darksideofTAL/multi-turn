@@ -1,0 +1,16 @@
+.git
+.venv
+wandb
+output
+data
+.benchmarks
+.pytest_cache
+.claude
+**/__pycache__
+*.pyc
+eval.txt
+uv.lock
+test.py
+tests
+deploy/cache
+experiments/multiturn/outputs

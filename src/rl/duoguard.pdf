@@ -1,0 +1,6 @@
+--2026-05-25 17:39:48--  https://arxiv.org/pdf/2502.05163
+Resolving arxiv.org (arxiv.org)... 151.101.131.42, 151.101.3.42, 151.101.195.42, ...
+Connecting to arxiv.org (arxiv.org)|151.101.131.42|:443... connected.
+ERROR: cannot verify arxiv.org's certificate, issued by ‘emailAddress=support@fortinet.com,CN=FG180FTK21900347,OU=Certificate Authority,O=Fortinet,L=Sunnyvale,ST=California,C=US’:
+  Unable to locally verify the issuer's authority.
+To connect to arxiv.org insecurely, use `--no-check-certificate'.

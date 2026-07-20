@@ -1,0 +1,47 @@
+name: "talmonitor_multiturn"
+backend: "python"
+# Multi-turn conversation monitor: frozen 12B single-turn classifier as turn
+# encoder + the 15M causal aggregator (cscale ALL winner, seed 0 — see
+# experiments/multiturn/RESULTS.md). Same op/stream protocol family as
+# talmonitor_unified, plus a "role" input consumed by op=feed.
+max_batch_size: 0
+
+input [
+  { name: "op"      data_type: TYPE_STRING dims: [ 1 ] },
+  { name: "conv_id" data_type: TYPE_STRING dims: [ 1 ] },
+  { name: "role"    data_type: TYPE_STRING dims: [ 1 ] },
+  { name: "text"    data_type: TYPE_STRING dims: [ 1 ] }
+]
+
+output [
+  { name: "result" data_type: TYPE_STRING dims: [ 1 ] }
+]
+
+instance_group [ { count: 1 kind: KIND_GPU } ]
+
+parameters [
+  {
+    key: "model_dir"
+    value: { string_value: "/models/google-gemma-3-12b-it-v4-nofreeze-n7500" }
+  },
+  {
+    # cscale ALL / seed 0 aggregator checkpoint, staged next to this config.
+    key: "agg_path"
+    value: { string_value: "/models_repo_mt/talmonitor_multiturn/aggregator.pt" }
+  },
+  {
+    # Deployed decision threshold: 2.8k-benign "bigcal" calibration at 2%
+    # per-conversation FPR (eval_cscale_all_bigcal_s0.json). Overrides the
+    # small-val tau stamped in the checkpoint (0.9262).
+    key: "tau"
+    value: { string_value: "0.9919610619544984" }
+  },
+  {
+    key: "max_seq_length"
+    value: { string_value: "4096" }
+  },
+  {
+    key: "conv_ttl_seconds"
+    value: { string_value: "600" }
+  }
+]

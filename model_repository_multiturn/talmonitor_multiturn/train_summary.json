@@ -1,0 +1,109 @@
+{
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": 0.12482838536146822,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.8702779757662152,
+      "f1": 0.6470588235294118,
+      "accuracy": 0.7811550151975684,
+      "tau": 0.991794526576996
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.014549754377971812,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.8778807317652649,
+      "f1": 0.6203208556149733,
+      "accuracy": 0.78419452887538,
+      "tau": 0.9262395501136781
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.0066433979045428205,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.862952403579631,
+      "f1": 0.6494845360824743,
+      "accuracy": 0.7933130699088146,
+      "tau": 0.9979684948921205
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.002012117801562169,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.837768274332779,
+      "f1": 0.5863874345549738,
+      "accuracy": 0.7598784194528876,
+      "tau": 0.9998691082000734
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.0023130384500022615,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.8449948523006257,
+      "f1": 0.7155172413793104,
+      "accuracy": 0.7993920972644377,
+      "tau": 0.9999831914901735
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.000981593613066003,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.8305614952086798,
+      "f1": 0.5681818181818182,
+      "accuracy": 0.7689969604863222,
+      "tau": 0.7359289526939393
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.0006254748122504683,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.8483804545814524,
+      "f1": 0.5777777777777777,
+      "accuracy": 0.7689969604863222,
+      "tau": 0.9896339178085328
+    },
+    {
+      "epoch": 7,
+      "train_loss": 7.546275072501976e-06,
+      "n": 329,
+      "n_pos": 122,
+      "auroc": 0.8522412291122199,
+      "f1": 0.6096256684491979,
+      "accuracy": 0.7781155015197568,
+      "tau": 0.9989163875579835
+    }
+  ],
+  "best_auroc": 0.8778807317652649,
+  "best_tau": 0.9262395501136781,
+  "args": {
+    "train_latents": "/raid/frontiers_ashoka/BARRED-multiturn/cscale/train_all",
+    "val_latents": "/raid/frontiers_ashoka/BARRED-multiturn/cscale/val",
+    "out": "outputs/agg_cscale_all_s0",
+    "epochs": 8,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_frac": 0.05,
+    "d_model": 512,
+    "layers": 3,
+    "heads": 8,
+    "dropout": 0.1,
+    "onset_weight": 2.0,
+    "no_policy_token": false,
+    "no_logit_features": false,
+    "oversample_comp": 6,
+    "bf16": false,
+    "grad_accum": 1,
+    "target_fpr": 0.02,
+    "device": "cuda",
+    "seed": 0
+  }
+}
